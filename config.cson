@@ -1,0 +1,34 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "00a41689-9656-43a0-9a47-bb5cc8d58c40"
+  "atom-ide-ui":
+    "atom-ide-code-format":
+      formatOnSave: true
+  "autocomplete-python":
+    useKite: false
+  core:
+    disabledPackages: [
+      "autocomplete-snippets"
+      "autocomplete-html"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "atom-material-syntax"
+    ]
+  "dash-ui":
+    iconsEnabled: false
+  editor:
+    fontSize: 13
+  "exception-reporting":
+    userId: "d885ebc8-22e3-4b39-ac63-0a33b1b8acda"
+  "linter-csslint": {}
+  "linter-ui-default":
+    panelHeight: 153
+  "platformio-ide-terminal":
+    core: {}
+  "script-runner": {}
+  "tree-view": {}
+  welcome:
+    showOnStartup: false

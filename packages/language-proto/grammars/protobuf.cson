@@ -1,0 +1,181 @@
+'scopeName': 'source.protobuf'
+'name': 'protobuf'
+'fileTypes': ['proto']
+'patterns': [
+  {
+    'captures':
+      '1':
+        'name': 'entity.name.class.custom.protobuf'
+      '2':
+        'name': 'variable.parameter.protobuf'
+    'match': '\\b(message|enum|service|extend)\\s+([.|\\w]+)\\b'
+    'name': 'custom.storage.protobuf'
+  }
+  {
+    'captures':
+      '1':
+        'name': 'storage.type.instance.protobuf'
+      '2':
+        'name': 'instance.name.protobuf'
+      '3':
+        'name': 'constant.numeric.protobuf'
+    'match': '\\s*([.|\\w]+)\\s+(\\w+)\\s*=\\s*(\\d+)\\b'
+    'name': 'member.protobuf'
+  }
+  {
+    'match': '\\b(message|enum|service|extend)\\b'
+    'name': 'entity.name.class.custom.protobuf'
+  }
+  {
+    'captures':
+      '1':
+        'name': 'keyword.rpc.rpc.protobuf'
+      '2':
+        'name': 'entity.name.function.rpc.protobuf'
+      '3':
+        'name': 'keyword.rpc.stream.protobuf'
+      '4':
+        'name': 'variable.parameter.rpc.request.protobuf'
+      '5':
+        'name': 'keyword.rpc.returns.protobuf'
+      '6':
+        'name': 'keyword.rpc.stream.protobuf'
+      '7':
+        'name': 'variable.parameter.rpc.response.protobuf'
+    'match': '\\b(rpc)\\s+(\\w+)\\s*\\(\\s*((?:stream\\s+)?)([.|\\w]+)\\s*\\)\\s+(returns)\\s+\\(\\s*((?:stream\\s+)?)([.|\\w]+)\\s*\\)'
+    'name': 'rpc.protobuf'
+  }
+  {
+    'captures':
+      '1':
+        'name': 'keyword.extensions.extensions.protobuf'
+      '2':
+        'name': 'constant.numeric.extensions.min.protobuf'
+      '3':
+        'name': 'keyword.extensions.to.protobuf'
+      '4':
+        'name': 'constant.numeric.extensions.max.protobuf'
+    'match': '\\b(extensions)\\s+([\\d]+)\\s+(to)\\s+(max|[\\d]+)\\b'
+    'name': 'extensions.protobuf'
+  }
+  {
+    'captures':
+      '1':
+        'name': 'keyword.map.protobuf'
+      '2':
+        'name': 'storage.type.key.protobuf'
+      '3':
+        'name': 'storage.type.value.protobuf'
+    'match': '\\b(map)\\s*<\\s*([.|\\w]+)\\s*,\\s*([.|\\w]+)\\s*>'
+    'name': 'map.protobuf'
+  }
+  {
+    'begin': 'reserved'
+    'beginCaptures':
+      '0':
+        'name': 'keyword.reserved.begin.protobuf'
+    'end': ';'
+    'endCaptures':
+      '0':
+        'name': 'reserved.end.protobuf'
+    'name': 'reserved.protobuf'
+    'patterns': [
+      {
+        'match': '\\bto\\b'
+        'name': 'keyword.reserved.to.protobuf'
+      }
+    ]
+  }
+  {
+    'match': '\\b[0-9]+\\b'
+    'name': 'constant.numeric.protobuf'
+  }
+  {
+    'match': '\\b(required|optional|repeated)\\b'
+    'name': 'storage.modifier.prefix.protobuf'
+  }
+  {
+    'match': '\\b(default|packed|deprecated)\\b'
+    'name': 'support.type.suffix.protobuf'
+  }
+  {
+    'match': '\\b(bool|double|enum|float|int32|uint32|int64|uint64|sint32|sint64|fixed32|fixed64|sfixed32|sfix64|string|bytes|int|sfixed64|true|false)\\b'
+    'name': 'storage.type.protobuf'
+  }
+  {
+    'match': '\\b(option|syntax|import)\\b'
+    'name': 'support.function.decl.protobuf'
+  }
+  {
+      'match': '\\b(SPEED|CODE_SIZE|LITE_RUNTIME|OBSOLETE_)\\b'
+      'name': 'support.constant.protobuf'
+  }
+  {
+    'captures':
+      '1':
+        'name': 'keyword.other.package.protobuf'
+      '2':
+        'name': 'support.class.package.protobuf'
+      '3':
+        'name': 'punctuation.terminator.protobuf'
+    'match': '^\\s*(package)\\b(?:\\s*([^ ;$]+)\\s*(;)?)?'
+    'name': 'package.protobuf'
+  }
+  {
+    'begin': '/\\*'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.comment.begin.protobuf'
+    'end': '\\*/'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.comment.end.protobuf'
+    'name': 'comment.block.protobuf'
+  }
+  {
+    'begin': '(^[ \\t]+)?(?=//)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.protobuf'
+    'end': '(?!\\G)'
+    'patterns': [
+      {
+        'begin': '//'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.protobuf'
+        'end': '\\n'
+        'name': 'comment.line.double-slash.protobuf'
+        'patterns': [
+          {
+            'match': '(?>\\\\\\s*\\n)'
+            'name': 'punctuation.separator.continuation.protobuf'
+          }
+        ]
+      }
+    ]
+  }
+  {
+    'begin': '"'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.string.begin.protobuf'
+    'end': '"'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.string.end.protobuf'
+    'name': 'string.quoted.double.protobuf'
+    'patterns': [
+      {
+        'include': 'punctuation.definition.string.begin.protobuf'
+      }
+      {
+        'include': 'punctuation.definition.string.end.protobuf'
+      }
+      {
+        'match': '\\\\.'
+        'name': 'constant.character.escape.protobuf'
+      }
+    ]
+  }
+]
